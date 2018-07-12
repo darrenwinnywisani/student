@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="new2.css">
+</head>
+<body>
+
+<section id="leftbox">
+
+Name:<br> <input type = "text" id = "name" placeholder="Enter your name" value = "" > </br>
+
+Surname:<br> <input type = "text" id = "sname" placeholder="Enter your surname" value = "" > </br>
+
+Age:<br> <input type = "text" id = "age" placeholder="Enter your age" value = "" > </br>
+
+<br></br>
+<button onclick = "myadd();"> add </button>
+<button onclick = "display();"> display</button> 
+<button onclick = "remove();"> delete</button> 
+
+<div id="container">
+
+</div>
+</section>
+<script >
+var student={name,sname,age};
+var studlist=[];
+
+function display(){
+    for(var i in studlist)
+	{
+     var ptagname  = document.createElement("p");
+     ptagname.innerHTML = studlist[i]+" ";
+     var container = document.getElementById("container");
+     container.appendChild(ptagname);
+    }
+
+}
+   function myadd(){
+     student.name = document.getElementById("name").value;
+     student.sname = document.getElementById("sname").value;
+     student.age = document.getElementById("age").value;
+
+   if(student.name=="")
+		{
+			alert("The name must not be empty");
+			windows.refresh();
+			
+		}
+		else if(isNaN(student.name.toString())==false)
+		{
+			alert("your name must be alphabets");
+			windows.refresh();
+		}
+		else if(student.sname=="")
+		{
+		   alert("The surname must not be empty");
+		   windows.refresh();
+		}
+		else if(isNaN(student.sname.toString())==false)
+		{
+			alert("your surname must be alphabets");
+			windows.refresh();
+		}
+		else if(student.age=="")
+		{
+			alert("The age must not be empty");
+			windows.refresh();
+		}
+		else if(isNaN(student.age)!=false)
+		{
+			alert("The age must be a number");
+			windows.refresh();
+		}
+		else
+		{
+		 
+		}
+	
+	var display= student.name+" "+student.sname+" "+student.age;
+	studlist.push(display);
+	
+	 student.name = document.getElementById("name").value="";
+     student.sname = document.getElementById("sname").value="";
+     student.age = document.getElementById("age").value="";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}
+
+function remove()
+{
+	    var div = document.getElementById("container");
+	    div.remove();
+		
+		studlist=[];
+		
+		var box=document.getElementById("leftbox");
+		
+		var container=document.createElement("div");
+		container.setAttribute("id","container");
+		
+		box.appendChild(container);
+		
+}
+
+display();
+
+
+</script>
+</body>
+</html>
